@@ -45,15 +45,21 @@ export const TWO_FACTOR_EMAIL_POLL_TIMEOUT = 1000 * 60 * 5;
 
 export const EVM_BLOCKCHAIN_NETWORK = {
   eth: 'ethereum',
+  matic: 'polygon-pos',
 };
 
 export const EVM_BLOCKCHAIN_ID: {[key in string]: number} = {
   eth: 1,
+  matic: 137,
 };
 
 export const EVM_BLOCKCHAIN_EXPLORERS: {[key in string]: any} = {
   eth: {
     [Network.mainnet]: 'etherscan.io/',
     [Network.testnet]: 'kovan.etherscan.io/',
+  },
+  matic: {
+    [Network.mainnet]: 'polygonscan.com/',
+    [Network.testnet]: 'mumbai.polygonscan.com/',
   },
 };

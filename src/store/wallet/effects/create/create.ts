@@ -1,6 +1,7 @@
 import {
   BitpaySupportedCoins,
   SupportedCoins,
+  SUPPORTED_EVM_COINS,
 } from '../../../../constants/currencies';
 import {Effect} from '../../../index';
 import {Credentials} from 'bitcore-wallet-client/ts_build/lib/credentials';
@@ -32,6 +33,7 @@ import {
 import {getCurrencyAbbreviation, sleep} from '../../../../utils/helper-methods';
 import {t} from 'i18next';
 import {LogActions} from '../../../log';
+import {IsERCToken} from '../../utils/currency';
 
 export interface CreateOptions {
   network?: Network;
@@ -258,6 +260,7 @@ const createMultipleWallets =
     const wallets: API[] = [];
     const tokens = currencies.filter(({isToken}) => isToken);
     const coins = currencies.filter(({isToken}) => !isToken);
+
     for (const coin of coins) {
       const wallet = (await createWallet({
         key,

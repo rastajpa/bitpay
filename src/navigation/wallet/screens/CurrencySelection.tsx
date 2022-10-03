@@ -18,7 +18,10 @@ import CurrencySelectionRow, {
 } from '../../../components/list/CurrencySelectionRow';
 
 import Button from '../../../components/button/Button';
-import {BitpaySupportedCurrencies} from '../../../constants/currencies';
+import {
+  BitpaySupportedCurrencies,
+  BitpaySupportedTokens,
+} from '../../../constants/currencies';
 import {startCreateKey} from '../../../store/wallet/effects';
 import {
   FlatList,
@@ -122,6 +125,7 @@ const DESCRIPTIONS: Record<string, string> = {
 
 const POPULAR_TOKENS: Record<string, string[]> = {
   eth: ['usdc', 'busd', 'ape'],
+  matic: ['usdc', 'busd', 'ape'],
 };
 
 const keyExtractor = (item: CurrencySelectionListItem) => item.currency.id;
