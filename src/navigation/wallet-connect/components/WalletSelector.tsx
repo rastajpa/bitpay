@@ -110,7 +110,7 @@ export default ({
   };
 
   const supportedCoins = useMemo(
-    () => buildList(['eth'], allWallets),
+    () => buildList(['eth', 'matic'], allWallets),
     [allWallets],
   );
 
@@ -121,7 +121,7 @@ export default ({
       keyId => {
         const key = keys[keyId];
         return {
-          key: keyId,
+          key: Math.random().toString(),
           keyName: key.keyName || 'My Key',
           wallets: supportedCoin.availableWalletsByKey[keyId].map(wallet => {
             const {
@@ -245,9 +245,7 @@ export default ({
             </TextAlign>
 
             <DescriptionText>
-              {t(
-                'Which Ethereum wallet would you like to use for WalletConnect?',
-              )}
+              {t('Which wallet would you like to use for WalletConnect?')}
             </DescriptionText>
 
             <WalletSelectMenuBodyContainer>
